@@ -16,11 +16,11 @@ Lingua::FI::Hyphenate - suomen tavutus
 
     print "@tavut\n"; # will print "ko deis san sa kaan\n";
 
-=head KÄYTTÖ
+=head1 KÄYTTÖ
 
     use Lingua::FI::Hyphenate qw(tavuta);
 
-    my @tavut = tavuta("kodeissansa");
+    my @tavut = tavuta("kodeissansakaan");
 
     print "@tavut\n"; # tulostaa "ko deis san sa kaan\n";
 
@@ -138,7 +138,7 @@ use strict;
 
 use vars qw($VERSION @ISA @EXPORT_OK);
 
-$VERSION = '0.02';
+$VERSION = '0.03';
 
 require Exporter;
 @ISA = qw(Exporter);
