@@ -43,12 +43,12 @@ The rules for syllable divisions are:
 
 =item *
 
-Before any consonant-vowel pair I<except> when the said consonant is
+B<Before> any consonant-vowel pair I<except> when the said consonant is
 the latter consonant of a syllable-initial consonant-consonant pair.
 
 =item *
 
-Between any vowel-vowel pair I<except> when the vowel pair is a
+B<Between> any vowel-vowel pair I<except> when the vowel pair is a
 Finnish diphthong, that is any of the I<ai au ei eu ey ie iu iy oi ou
 ui uo yi yˆ ‰i ‰y ˆi ˆy>.
 
@@ -72,14 +72,13 @@ Tavujakos‰‰nnˆt ovat:
 
 =item *
 
-Ennen jokaista konsonantti-vokaali paria I<paitsi> kun mainittu
-konsonantti on tavunalkuisen konsonantti-konsonantti-parin
-j‰lkimm‰inen.
+B<Ennen> jokaista konsonantti-vokaali-paria I<paitsi> kun mainittu
+konsonantti on tavunalkuisen konsonantti-konsonantti-parin j‰lkimm‰inen.
 
 =item *
 
-Jokaisen vokaali-vokaali parin v‰liss‰ I<paitsi> kun vokaalipari on
-suomalainen diftongi, eli jokin seuraavista: I<ai au ei eu ey ie iu iy
+Jokaisen vokaali-vokaali-parin B<v‰liss‰> I<paitsi> kun vokaalipari on
+suomen diftongi, eli jokin seuraavista: I<ai au ei eu ey ie iu iy
 oi ou ui uo yi yˆ ‰i ‰y ˆi ˆy>.
 
 =head1 CAVEAT
@@ -102,9 +101,8 @@ tavuttua v‰‰rin, varsinkin jos ensimm‰inen osa p‰‰ttyy konsonanttiin
 ja toinen osa alkaa vokaalilla.  Esimerkiksi "kaivosaukko" tavuttuu
 v‰‰rin: "kai-vo-sauk-ko".  Tarkkavaisuutta tavutukseen.
 
-Voit antaa tavutusvihjeit‰ k‰ytt‰m‰ll‰ "-"-merkkii‰ sopivissa
-kohdissa.  Itse asiassa kaikki ei-kirjain-merkit poistetaan ja
-korvataan tavurajoilla.
+Voit antaa tavutusvihjeit‰ k‰ytt‰m‰ll‰ "-"-merkki‰ sopivissa kohdissa.
+Itse asiassa kaikki paitsi kirjaimet poistetaan ja korvataan tavurajoilla.
 
 =head1 AUTHOR
 
@@ -138,7 +136,7 @@ use strict;
 
 use vars qw($VERSION @ISA @EXPORT_OK);
 
-$VERSION = '0.03';
+$VERSION = '0.04';
 
 require Exporter;
 @ISA = qw(Exporter);
@@ -168,7 +166,7 @@ sub tavuta {
     @tavut = map { split /(?=(?<!^$K)$K$V)/ } @tavut;
 
     # Syllable division between any VV pair
-    # that is not a diphtong.
+    # that is not a Finnish diphtong.
 
     @tavut = map { split /(.*?[aA])(?=[eoEO])/ }       @tavut;
     @tavut = map { split /(.*?[eiEI])(?=[ao‰ˆAOƒ÷])/ } @tavut;
@@ -177,6 +175,7 @@ sub tavuta {
     @tavut = map { split /(.*?[ˆ÷])(?=[eE])/ }         @tavut;
 
     if ($VU) {
+	# TO DO - TEKEMƒTTƒ.
     }
 
     @tavut;

@@ -1,4 +1,4 @@
-print "1..13\n";
+print "1..16\n";
 
 use Lingua::FI::Hyphenate 'tavuta';
 
@@ -16,14 +16,7 @@ print "ok 10\n" if join(" ", tavuta("uistin")) eq "uis tin";
 print "ok 11\n" if join(" ", tavuta("arkku")) eq "ark ku";
 print "ok 12\n" if join(" ", tavuta("proto")) eq "pro to";
 print "ok 13\n" if join(" ", tavuta("sanoa")) eq "sa no a";
-
-
-
-
-
-
-
-
-
-
+print "ok 14\n" if join(" ", tavuta("kodeissansakaan")) eq "ko deis san sa kaan";
+print "ok 15\n" if join(" ", tavuta("sanomattomuudellaanko")) eq "sa no mat to muu del laan ko";
+print "ok 16\n" if join(" ", tavuta("alavilla mailla hallan vaara")) eq "a la vil la mail la hal lan vaa ra";
 
